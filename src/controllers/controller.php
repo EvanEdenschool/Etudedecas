@@ -1,5 +1,1 @@
 <?php
-
-public class Controller{
-
-}
