@@ -22,6 +22,9 @@ require "core.php";
             include ("views/nouveautes.php");
           ?>
           <?php
+            include ("views/produits.php");
+          ?>
+          <?php
             include ("views/slider.php");
           ?>
   </body>
