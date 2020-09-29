@@ -80,3 +80,47 @@ h1 {
 #slider {
     padding-left: 23%;
 }
+.slide_inside {
+    margin-top: 20px;
+}
+
+
+/* PRODUITS */
+
+.separateur {
+    height: 2px;
+    background-color: #d9534f;
+    border-radius: 5px;
+    opacity: 0.8;
+    box-shadow: -1px -1px 3px gray;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.produits {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px #000000;
+    min-height: 500px;
+    height: auto;
+}
+.categorie {
+    text-align: center;
+    font-weight: bold;
+}
+.titre {
+    text-align: center;
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+.prix {
+    text-align: center;
+    font-weight: bold;
+}
+.addToCart {
+    text-align: center;
+    float: left;
+    position: relative;
+    left: 50px;
+    margin-bottom: 20px
+}
