@@ -34,3 +34,19 @@ function validform() {
     }
 
 }
+
+//page de connexion
+function validCnx() {
+    var a = document.forms["login-form"]["email"].value;
+    var b = document.forms["login-form"]["password"].value;
+    // on verifie si les champs nécéssaire ne sont pas nul
+    if (a==null || a=="")
+    {
+        alert("Entrez votre email");
+        return false;
+    }else if (b==null || b=="")
+    {
+        alert("Entrez votre mot de passe");
+        return false;
+    }
+}
