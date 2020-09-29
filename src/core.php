@@ -1,7 +1,7 @@
 <?php
 
 
-  require("models/Model.php");
+  require("models/model.php");
   require("models/Utilisateur.php");
   require("models/Produit.php");
   require("models/Commandes.php");
