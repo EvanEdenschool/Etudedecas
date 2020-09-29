@@ -14,16 +14,9 @@
       public static function saveUtilisateur($email, $prenom, $nom, $date_inscription, $adresse = null, $password)
       {
 
-          $req = Model::getPDO()->prepare("INSERT INTO utilisateurs(nom, prenom, date_inscription, email, password, adresse) VALUES (:nom, :prenom, :date_inscription, :email, :password, :adresse)");
+          $req = Model::getPDO()->prepare("INSERT INTO utilisateurs(nom, prenom, date_inscription, email, password, adresse) VALUES ('$nom', '$prenom', '$date_inscription', '$email', '$password', '$adresse')");
 
-          return $req->execute(array(
-              ':nom' => $nom,
-              ':prenom' => $prenom,
-              ':date_inscription' => $date_inscription,
-              ':email' => $email,
-              ':password' => $password,
-              ':adresse' => $adresse
-          ));
+          return $req->execute();
 
       }
     }
