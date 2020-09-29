@@ -32,4 +32,16 @@
           }
 
       }
+      public static function authentification($email, $password) {
+
+        $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE email = ?");
+        $query->execute([$email]);
+        $user = $query->fetch();
+        if ( $password === $user['password'])
+        {
+          return true;
+        } else {
+          return false;
+        }
+      }
     }
