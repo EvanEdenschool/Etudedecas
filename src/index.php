@@ -27,5 +27,8 @@ require "core.php";
           <?php
             include ("views/slider.php");
           ?>
+          <?php
+            include ("views/about.php");
+          ?>  
   </body>
 </html>
