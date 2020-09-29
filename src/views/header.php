@@ -7,8 +7,8 @@
             <a href="#">DVD</a>
        </div>
         <div class="col-md-3">
-            <div class="btn btn-danger">INSCRIPTION</div>
-            <div class="btn btn-danger">CONNEXION</div>
+            <a class="btn btn-danger" href="views/inscription.php">INSCRIPTION</a>
+            <a class="btn btn-danger" href="views/login.php">CONNEXION</a>
         </div>
         <div class="col-md-4">
             <button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
