@@ -16,7 +16,7 @@ class Model{
   // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
 
 
-  function getPDO(){
+  static function getPDO(){
   	try{
   		return $db = new PDO('mysql:host=localhost:3308;dbname=mediastore','root','',
   		array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
