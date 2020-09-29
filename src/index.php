@@ -18,5 +18,8 @@ require "core.php";
           <?php
             include ("views/header.php");
           ?>
+          <?php
+            include ("views/nouveautes.php");
+          ?>
   </body>
 </html>
