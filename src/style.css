@@ -124,3 +124,26 @@ h1 {
     left: 50px;
     margin-bottom: 20px
 }
+
+
+
+
+/* ABOUT */
+
+#textAbout {
+    border: 2px solid #d9534f;
+    background-color: #d9534f;
+    min-height: 500px;
+    height: auto;
+    margin-bottom: 50px;
+}
+#imageAbout {
+    background-image: url(img/about.jpg);
+    min-height: 500px;
+}
+.about {
+    text-align: justify;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px #000000;
+    line-height: 22px;
+}
