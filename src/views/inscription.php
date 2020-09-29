@@ -36,6 +36,7 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['prenom']
 </head>
 <body>
 
+<h3 class="inscriptionLoginTitre">Inscription</h3>
 
 <main class="my-form">
     <div class="container">
