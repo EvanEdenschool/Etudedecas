@@ -1,6 +1,6 @@
 <div id="header" class="container">
     <div class="row">
-       <div class="col-md-6">
+       <div class="col-md-5">
             <h2>Mediastore</h2>
             <a href="#">Home</a>
             <a href="#">CD</a>
@@ -10,9 +10,10 @@
             <div class="btn btn-danger">INSCRIPTION</div>
             <div class="btn btn-danger">CONNEXION</div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
             <input type="search" id="site-search" name="search">
+            <div class="btn btn-danger cart"><span class="glyphicon glyphicon-shopping-cart"></span></div>
         </div>
     </div>
 </div>
