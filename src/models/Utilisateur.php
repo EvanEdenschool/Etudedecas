@@ -12,8 +12,11 @@
 
       public static function getUtilisateurById($id) {
           $req = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE id = ?");
-          if($req->execute([$id])) {
-              return true;
+          $req->execute([$id]); 
+          $user = $req->fetch();
+          if(isset($user) && $user){
+            echo'hello';             
+              return $user;
           } else {
               return false;
           }
