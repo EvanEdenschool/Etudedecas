@@ -27,6 +27,12 @@ a:hover {
     margin-top: 30px;
     margin-right: 10px;
 }
+.cart {
+    height: 35px;
+}
+.glyphicon-shopping-cart {
+    margin: 3px auto;
+}
 #site-search {
     border: #d9534f 2px solid;
     border-radius: 5px;
@@ -38,6 +44,7 @@ a:hover {
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
+    margin-left: 25px;
 }
 .nouveautes {
     background-color: #000000;
