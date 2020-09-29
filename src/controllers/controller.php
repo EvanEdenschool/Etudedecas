@@ -21,4 +21,15 @@ class Controller {
 
 
     }
+    //fonction connexion
+    public static function connexion() {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        //si l'utilisateur existe
+        if(Utilisateur::authentification($email,$password) == true) {
+            header('Location:../');
+        }else {
+            echo "email ou mot de passe invalide";
+        }
+    }
 }
