@@ -73,7 +73,7 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['prenom']
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Mot de passe</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="password" class="form-control" name="password">
+                                    <input type="password" id="password" class="form-control" name="password">
                                 </div>
                             </div>
 
