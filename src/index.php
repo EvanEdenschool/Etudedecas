@@ -30,5 +30,8 @@ require "core.php";
           <?php
             include ("views/about.php");
           ?>  
+          <?php
+            include ("views/footer.php");
+          ?>  
   </body>
 </html>
