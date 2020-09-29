@@ -36,14 +36,9 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['prenom']
 </head>
 <body>
 
-<?php
-    include ("header.php");
-?>
-
-
 
 <main class="my-form">
-    <div class="cotainer">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -88,7 +83,7 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['prenom']
 
 
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-danger">
                                     Register
                                 </button>
                             </div>
