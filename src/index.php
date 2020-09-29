@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "core.php";
 ?>
 
@@ -14,7 +15,6 @@ require "core.php";
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
           <?php
             include ("views/header.php");
           ?>
