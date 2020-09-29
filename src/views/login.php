@@ -23,9 +23,6 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['password
 </head>
 <body>
 
-<?php
-    include ("header.php");
-?>
 
 <main class="my-form">
     <div class="cotainer">
