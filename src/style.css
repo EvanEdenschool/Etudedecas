@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* HEADER */
 
 #header {
@@ -146,4 +150,36 @@ h1 {
     color: #FFFFFF;
     text-shadow: 1px 1px 2px #000000;
     line-height: 22px;
+}
+
+
+
+
+/* FOOTER */
+#newsletter {
+    width: 265px;
+}
+#btnNewsletter {
+    background-color: #d9534f;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    height: 25px;
+}
+#footer img {
+    padding-right: 27px;
+}
+#mentions {
+    background-color: #000000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 200px;
+}
+#mentions h2 {
+    color: #FFFFFF;
+    margin-bottom: 80px;
+}
+#mentions p {
+    color: #FFFFFF;
+    font-size: 1rem;
 }
