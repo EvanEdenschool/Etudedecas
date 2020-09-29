@@ -23,9 +23,10 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['password
 </head>
 <body>
 
+<h3 class="inscriptionLoginTitre">Connexion</h3>
 
 <main class="my-form">
-    <div class="cotainer">
+    <div class="container">
         <div class="row justify-content-center ">
             <div class="col-md-6">
                 <div class="card">
@@ -47,7 +48,7 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['password
                                     </div>
                                 </div>
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-danger">
                                         Connexion
                                     </button>
                                 </div>
@@ -57,7 +58,7 @@ if ((isset($_POST['email']) && $_POST['email'] != "") && (isset($_POST['password
             </div>
         </div>
     </div>
-
+</main>
 
     <!-- Bootstrap JS-->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
