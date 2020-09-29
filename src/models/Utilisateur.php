@@ -10,6 +10,16 @@
         return $user;
       }
 
+      public static function getUtilisateurById($id) {
+          $req = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE id = ?");
+          if($req->execute([$id])) {
+              return true;
+          } else {
+              return false;
+          }
+
+      }
+
       // sauvegarde un utilisateur
       public static function saveUtilisateur($email, $prenom, $nom, $date_inscription, $adresse = null, $password)
       {
@@ -37,9 +47,9 @@
         $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE email = ?");
         $query->execute([$email]);
         $user = $query->fetch();
-        if ( $password === $user['password'])
+        if ( password_verify($user['password'], $password))
         {
-          return true;
+          return $user;
         } else {
           return false;
         }
