@@ -9,6 +9,18 @@
         return $produits;
       }
 
+      public static function getProduitById($id) {
+          $query = Model::getPDO()->prepare("SELECT * FROM produits WHERE id_produit = ?");
+          $query->execute([$id]);
+          $produit = $query->fetch();
+          if($produit){
+              return $produit;
+          } else {
+              return false;
+          }
+
+      }
+
       public static function saveProduit($nom, $categorie, $genre, $description, $image, $prix, $disponibilite, $date_edition, $editeur, $auteur)
       {
           $req = Model::getPDO()->prepare("INSERT INTO produits(nom, categorie, genre, description, image, prix, disponibilite, date_edition, editeur, auteur) VALUES (?,?,?,?,?,?,?,?,?,?)");

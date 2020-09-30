@@ -19,7 +19,9 @@
         <div class="col-md-4">
             <button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
             <input type="search" id="site-search" name="search" placeholder="Rechercher un produit">
-            <div class="btn btn-danger cart"><span class="glyphicon glyphicon-shopping-cart"></span></div>
+            <?php  if(isset($_SESSION['user_id'])) { ?>
+                <div class="btn btn-danger cart"><?=isset($_SESSION['panier']['count']) ? $_SESSION['panier']['count'] : ""?><span class="glyphicon glyphicon-shopping-cart"></span></div>
+            <?php } ?>
         </div>
     </div>
 </div>
