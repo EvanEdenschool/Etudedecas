@@ -10,7 +10,7 @@
         return $user;
       }
 
-      public static function getUtilisateurById($id):Utilisateur {
+      public static function getUtilisateurById($id) {
         $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE id_utilisateur = ?");
         $query->execute([$id]); 
         $user = $query->fetch();
@@ -23,7 +23,7 @@
       }
 
       // sauvegarde un utilisateur
-      public static function saveUtilisateur($email, $prenom, $nom, $date_inscription, $adresse = null, $password):boolean
+      public static function saveUtilisateur($email, $prenom, $nom, $date_inscription, $adresse = null, $password)
       {
           // on recupere les utilisateurs existant
           $users = Utilisateur::getUtilisateur();
