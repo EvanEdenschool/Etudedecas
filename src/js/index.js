@@ -7,7 +7,6 @@ function validform() {
     var b = document.forms["my-form"]["email"].value;
     var c = document.forms["my-form"]["prenom"].value;
     var d = document.forms["my-form"]["nom"].value;
-    var e = document.forms["my-form"]["adresse"].value;
     var f = document.forms["my-form"]["password"].value;
 
     // on verifie si les champs nécéssaire ne sont pas nul
