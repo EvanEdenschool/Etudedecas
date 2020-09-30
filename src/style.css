@@ -83,10 +83,13 @@ h1 {
 /* SLIDER */
 #slider {
     padding-left: 23%;
+    height: 300px;
 }
 .slide_inside {
     margin-top: 20px;
 }
+
+
 
 
 /* PRODUITS */
