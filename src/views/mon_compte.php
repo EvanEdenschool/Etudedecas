@@ -92,6 +92,24 @@ $user = Controller::getUtilisateurById($_GET['id']);
             padding-top: 120px;
             text-shadow: 2px 2px 3px #000000;
         }
+        #bouton_adresse_update {
+            background-color: #d9534f;
+            border-style: none;
+            border-radius: 5px;
+            color: #FFFFFF;
+            margin-left: 20px;
+            height: 25px;
+            width: 60px;
+        }
+        #bouton_adresse_update:hover {
+            background-color: #BD4946;
+        }
+        .infos {
+            margin-bottom: 10px;
+        }
+        .cmd {
+            margin-bottom: 10px;
+        }
 
     </style>
     <title>Mon compte</title>
@@ -120,7 +138,7 @@ $user = Controller::getUtilisateurById($_GET['id']);
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container cmd">
             <div class="row justify-content-center ">
                 <div class="col-md-6">
                     <div class="card">
@@ -139,7 +157,9 @@ $user = Controller::getUtilisateurById($_GET['id']);
                     <div class="card">
                         <div class="card-header"><h3>Modifier mes informations</h3></div>
                             <div class="card-body">
-                                <h5 class="card-text"> vide</h5>
+                                <h5>Enregistrer une nouvelle adresse de livraison :</h5>
+                                <input type="text" name="adresse_update" id="adresse_update" style="width: 300px;">
+                                <button type="submit" name="valider" id="bouton_adresse_update">Valider</button>
                             </div>
                         </div>
                     </div>
