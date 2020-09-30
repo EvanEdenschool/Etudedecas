@@ -16,39 +16,140 @@ $user = Controller::getUtilisateurById($_GET['id']);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="../js/index.js"></script>
-    <title>mon compte</title>
+    <style type="text/css">
+        #header {
+            background-color: #FFFFFF;
+            min-height: 120px;
+            height: auto;
+        }
+        h2 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-transform: uppercase;
+            font-size: 3rem;
+            margin-top: 30px;
+        }
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #d9534f;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        a:hover {
+            text-decoration: none;
+            color: #000000;
+        }
+        .btn {
+            float: right;
+            margin-top: 30px;
+            margin-right: 10px;
+        }
+        .cart {
+            height: 35px;
+        }
+        .glyphicon-shopping-cart {
+            margin: 3px auto;
+        }
+        #site-search {
+            border: #d9534f 2px solid;
+            border-radius: 5px;
+            margin-top: 35px;
+        }
+        #searchBtn {
+            height: 25px;
+            background-color: #d9534f;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            margin-left: 25px;
+        }
+        .nouveautes {
+            background-color: #000000;
+            height: 200px;
+        }
+        .my-form {
+            margin-bottom: 60px;
+        }
+        .infos {
+            margin-top: 20px
+        }
+        .update {
+            margin-bottom: 20px
+        }
+        .welcome {
+            min-height: 350px;
+            height: auto;
+            background-image: url(../img/cd.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .welcome h1 {
+            color: #FFFFFF;
+            font-size: 3.7rem;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 120px;
+            text-shadow: 2px 2px 3px #000000;
+        }
+
+    </style>
+    <title>Mon compte</title>
 </head>
 <body>
-    <main class="my-form">
-    <div class="container">
-        <div class="row justify-content-center ">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Mon compte</div>
-                    <div class="card-body">
-                    <h5 class="card-title"> <?= $user['nom'] . ' ' . $user['prenom'];?></h5>
-                    <p class="card-text">Email : <?=  $user ['email'];?></p>
-                    <p class="card-text">Adresse : <?= $user ['adresse'];?></p>
+
+    <?php
+        include ("header.php");
+    ?>
+    <div class="container welcome">
+        <h1>Bienvenue sur votre compte !</h1>
+    </div>
+    
+    <main class="my-form container formbox">
+        <div class="container infos">
+            <div class="row justify-content-center ">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h3>Mes informations</h3></div>
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Nom :</strong> <?= $user['nom'] . ' ' . $user['prenom'];?></h5>
+                            <h5 class="card-text"><strong>Email :</strong> <?=  $user ['email'];?></h5>
+                            <h5 class="card-text"><strong>Adresse :</strong> <?= $user ['adresse'];?></h5>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center ">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Historique des commandes</div>
-                    <div class="card-body">
-                    <p class="card-text"> vide</p>
+        <div class="container">
+            <div class="row justify-content-center ">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h3>Historique de mes commandes</h3></div>
+                            <div class="card-body">
+                                <h5 class="card-text"> vide</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
+        <div class="container update">
+            <div class="row justify-content-center ">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h3>Modifier mes informations</h3></div>
+                            <div class="card-body">
+                                <h5 class="card-text"> vide</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
+    <?php
+        include ("footer.php");
+    ?>
 
 </body>
