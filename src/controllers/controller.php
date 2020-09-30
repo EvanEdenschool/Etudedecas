@@ -32,6 +32,12 @@ class Controller {
         return $produits;
     }
 
+
+    public static function getProduitById($id) {
+        $produit = Produit::getProduitById($id);
+        return $produit;
+    }
+
     public static function saveProduit() {
         $nom = $_POST['nom_produit'];
         $categorie = $_POST['categorie_produit'];
@@ -51,6 +57,16 @@ class Controller {
         }
 
     }
+
+    //fonction de recupération des produit par critere de selection
+    public static function getProduitByCriteres () {
+        $categorie = $_POST['categorie'];
+        $genre = $_POST['genre'];
+        $prix = $_POST['prix'];
+        //
+        return $produits = Produit::getFilteredProducts($categorie,$genre);
+    }
+
     /* Produits */
 
     //fonction connexion
@@ -69,17 +85,24 @@ class Controller {
         }
     }
 
- 
-    //fonction de recupération des produit par critere de selection
-    public static function getProduitByCriteres () {
-        $categorie = $_POST['categorie'];
-        $genre = $_POST['genre'];
-        $prix = $_POST['prix'];
-        //
-        return $produits = Produit::getFilteredProducts($categorie,$genre);
-      
 
-            
- 
+
+    /* Panier */
+    public static function addProduitToPanier()
+    {
+        $produit = Controller::getProduitById($_GET['id_p']);
+        $_SESSION['panier']['produit_' . $produit['id_produit']] = array(
+            'id_produit' => $produit['id_produit'],
+            'nom' => $produit['nom'],
+            'image' => $produit['image'],
+            'prix' => $produit['prix'],
+        );
+        if (!isset($_SESSION['panier']['count'])) {
+            $_SESSION['panier']['count'] = 0;
+        }
+        $_SESSION['panier']['count']++;
+        header('Location:../');
     }
+    /* Panier */
+
 }
