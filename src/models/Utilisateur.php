@@ -11,9 +11,11 @@
       }
 
       public static function getUtilisateurById($id) {
-          $req = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE id = ?");
-          if($req->execute([$id])) {
-              return true;
+        $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE id_utilisateur = ?");
+        $query->execute([$id]); 
+        $user =  $query->fetch();
+          if($user){         
+              return $user;
           } else {
               return false;
           }
