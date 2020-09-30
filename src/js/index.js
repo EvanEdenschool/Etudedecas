@@ -44,4 +44,25 @@ function validCnx() {
         alert("Entrez votre mot de passe");
         return false;
     }
+
+    //Recherche par critere 
+    function validFilter() {
+        var a = document.forms["filter-produit"]["categorie"].value;
+        var b = document.forms["filter-produit"]["genre"].value;
+        var b = document.forms["filter-produit"]["prix"].value;
+        // on verifie si les champs nécéssaire ne sont pas nul
+        if (a==null || a=="")
+        {
+            alert("Selectionnez une catégorie");
+            return false;
+        }else if (b==null || b=="")
+        {
+            alert("Selectionnez un genre");
+            return false;
+        }else if (c==null || c=="")
+        {
+            alert("Selectionnez un type de prix");
+            return false;
+        }
+    }
 }

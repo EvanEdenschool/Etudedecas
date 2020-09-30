@@ -16,4 +16,23 @@
               return true;
           }
       }
+      
+      public static function getFilteredProducts($categorie, $genre) {
+        $query = Model::getPDO()->prepare(
+          "SELECT * 
+          FROM produits AS p  
+          WHERE p.categorie = :categorie
+          AND p.genre = :genre
+          ORDER by p.prix ASC"
+        );
+        $query->execute(array (':categorie' => $categorie, ':genre' => $genre));
+
+        while($produit =  $query->fetch()){         
+           $produits [] = $produit;
+        }
+        if (!empty($produits)) {
+          return $produits;
+        }
+         
+      }
     }

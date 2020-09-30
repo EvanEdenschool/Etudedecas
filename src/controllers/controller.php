@@ -68,4 +68,18 @@ class Controller {
             echo "email ou mot de passe invalide";
         }
     }
+
+ 
+    //fonction de recupération des produit par critere de selection
+    public static function getProduitByCriteres () {
+        $categorie = $_POST['categorie'];
+        $genre = $_POST['genre'];
+        $prix = $_POST['prix'];
+        //
+        return $produits = Produit::getFilteredProducts($categorie,$genre);
+      
+
+            
+ 
+    }
 }
