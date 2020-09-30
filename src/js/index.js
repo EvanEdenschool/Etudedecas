@@ -23,10 +23,6 @@ function validform() {
     {
         alert("Entrez votre Nom");
         return false;
-    }else if (e==null || e=="")
-    {
-        alert("Entrez votre Adresse");
-        return false;
     }else if (f==null || f=="")
     {
         alert("Entrez votre Mot de passe");
