@@ -13,7 +13,7 @@
       public static function getUtilisateurById($id) {
         $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE id_utilisateur = ?");
         $query->execute([$id]); 
-        $user =  $query->fetch();
+        $user = $query->fetch();
           if($user){         
               return $user;
           } else {
