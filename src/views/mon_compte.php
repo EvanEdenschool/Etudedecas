@@ -122,9 +122,7 @@ if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
         .menu {
             display: none;
         }
-
         }
-
 
         @media screen and (min-width: 530px) {
 
