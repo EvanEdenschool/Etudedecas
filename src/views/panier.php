@@ -136,7 +136,8 @@ require "../core.php";
                                 <tr>
                                     <th scope="col">Quantité</th>
                                     <th class="middle" scope="col">Produit</th>
-                                    <th scope="col">Prix</th>
+                                    <th class="middle" scope="col">Prix</th>
+                                    <th scope="col">Supprimer</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -145,7 +146,8 @@ require "../core.php";
                                 <tr>
                                     <td><?= $panierProduit['quantite'] ?></td>
                                     <td class="middle"><?= $panierProduit['nom'] ?></td>
-                                    <td><?= $panierProduit['prix'] ?>€</td>
+                                    <td class="middle"><?= $panierProduit['prix'] ?>€</td>
+                                    <td><a href="" class="glyphicon glyphicon-trash"></a></td>
                                 </tr>
                             <?php }?>
 
