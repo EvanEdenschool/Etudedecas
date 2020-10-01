@@ -11,7 +11,7 @@ class Controller {
         $nom = $_POST['nom'];
         $adresse = $_POST['adresse'];
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $date_inscription = date('Y-m-d H:i:s'); // date du jour    
+        $date_inscription = date('Y-m-d H:i:s'); // date du jour
         // si saveUtilisateur() a bien fonctionné
         if (Utilisateur::saveUtilisateur($email, $prenom, $nom, $date_inscription, $adresse, $password) == true) {
             // on redirige sur la page login
@@ -27,7 +27,7 @@ class Controller {
         return $user;
     }
     /* Mise a jour de l'adresse de l'utilisateur*/
-    
+
     public static function updateUserAddress($id) {
         $adresse= $_POST['adresse_update'];
         $user = Utilisateur::updateUserAddress($id, $adresse);
@@ -132,7 +132,7 @@ class Controller {
                 if($page_vise != 'home') {
                     $link = "./" . $page_vise;
                 } else {
-                    $link = '../' . $page_vise;
+                    $link = '../';
                 }
             }
         }
@@ -183,6 +183,15 @@ class Controller {
         $_SESSION['prix_total'] += ($produit['prix'] * $_GET['quantite']);
         $_SESSION['count'] += $_GET['quantite'];
         header('Location:../');
+    }
+
+    public static function deleteProduit($id) {
+        if(isset($id) && isset($_SESSION['user_id'])) {
+            unset($_SESSION['panier']['produit_' . $id]);
+            $_SESSION['count'] -= 1;
+        } else {
+            echo 'Une erreur et survenue lors de la supression';
+        }
     }
     /* Panier */
 

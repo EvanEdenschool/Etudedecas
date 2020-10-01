@@ -6,6 +6,10 @@ if(isset($_POST['test'])) {
     Controller::createCommande();
 }
 
+if(isset($_POST['id_produit_delete'])) {
+    Controller::deleteProduit($_POST['id_produit_delete']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -163,15 +167,18 @@ if(isset($_POST['test'])) {
                             if(isset($_SESSION['panier'])) {
                                 foreach ($_SESSION['panier'] as $panierProduit) { ?>
                                     <tr>
-                                        <td><?= isset($panierProduit['quantite']) ? $panierProduit['quantite'] : "" ?></td>
-                                        <td class="middle"><?= isset($panierProduit['nom']) ? $panierProduit['nom'] : "" ?></td>
-                                        <td class="middle"><?= isset($panierProduit['prix']) ? $panierProduit['prix'] : "" ?>€</td>
-                                        <td><a href="" class="glyphicon glyphicon-trash"></a></td>
+                                        <form method="post">
+                                            <td><?= isset($panierProduit['quantite']) ? $panierProduit['quantite'] : "" ?></td>
+                                            <td class="middle"><?= isset($panierProduit['nom']) ? $panierProduit['nom'] : "" ?></td>
+                                            <td class="middle"><?= isset($panierProduit['prix']) ? $panierProduit['prix'] : "" ?>€</td>
+                                            <td><button type="submit" href="" class="glyphicon glyphicon-trash"></button></td>
+                                            <input type="hidden" name="id_produit_delete" value="<?= $panierProduit['id_produit']?>" />
+                                        </form>
                                     </tr>
                                 <?php }
                             } else {?>
                                     <tr>
-                                        <td class="middle" colspan="3"><p>Le panier est vide</p></td>
+                                        <td class="middle" colspan="4"><p>Le panier est vide</p></td>
                                     </tr>
                             <?php } ?>
                             </tbody>

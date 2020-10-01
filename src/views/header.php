@@ -4,6 +4,7 @@ $linkToSeDeconnecter = Controller::redirectTo('se_deconnecter.php');
 $linkToInscription = Controller::redirectTo('inscription.php');
 $linkToLogin = Controller::redirectTo('login.php');
 $linkToPanier = Controller::redirectTo('panier.php');
+$linkToHome = Controller::redirectTo('home');
 ?>
 
 <!-- HEADER VERSION DESKTOP -->
@@ -11,7 +12,7 @@ $linkToPanier = Controller::redirectTo('panier.php');
     <div class="row">
        <div class="col-md-4">
             <h2>Mediastore</h2>
-            <a class="menu" href="../">Home</a>
+            <a class="menu" href="<?= $linkToHome ?>">Home</a>
        </div>
         <div class="col-md-4">
             <?php if (isset($_SESSION['user_id'])) { ?>
@@ -47,7 +48,7 @@ $linkToPanier = Controller::redirectTo('panier.php');
 
         <div class="collapse navbar-collapse" id="monMenu">
             <ul class="nav navbar-nav">
-                <li><a href="../">HOME</a></li>
+                <li><a href="<?= $linkToHome ?>">HOME</a></li>
                 <?php if (isset($_SESSION['user_id'])) { ?>
                     <li><a href="<?= $linkToMonCompte ?>?id=<?=$_SESSION['user_id']?>">MON COMPTE</a></li>
                 <li><a href="<?= $linkToSeDeconnecter ?>?id=<?= $_SESSION['user_id'] ?>">DECONNEXION</a></li>
