@@ -28,7 +28,7 @@ $linkToPanier = Controller::redirectTo('panier.php');
             <button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
             <input type="search" id="site-search" name="search" placeholder="Rechercher un produit">
             <?php  if(isset($_SESSION['user_id'])) { ?>
-                <a href="<?= $linkToPanier ?>" class="btn btn-danger cart"><?=isset($_SESSION['panier']['count']) ? $_SESSION['panier']['count'] : ""?><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                <a href="<?= $linkToPanier ?>" class="btn btn-danger cart"><?=isset($_SESSION['count']) ? $_SESSION['count'] : ""?><span class="glyphicon glyphicon-shopping-cart"></span></a>
             <?php } ?>
         </div>
     </div>
