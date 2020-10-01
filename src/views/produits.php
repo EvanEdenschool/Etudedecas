@@ -4,15 +4,13 @@ $produits = Controller::getProduits();
 if ((isset($_POST['categorie']) && $_POST['categorie'] != "") && (isset($_POST['prix']) && $_POST['prix'] != "") && (isset($_POST['genre']) && $_POST['genre'] != "")) {
     $produits = Controller::getProduitByCriteres();
 }else if ((isset($_POST['categorie']) && $_POST['categorie'] != "")) {
-    echo " catégorie not null";
+
     $produits = Controller::getProduitByCategorie();
 
 }else if((isset($_POST['prix']) && $_POST['prix'] != "")) {
-    echo " prix not null";
     $produits = Controller::getProduitByPrix();
 
 }else if ((isset($_POST['genre']) && $_POST['genre'] != "") ) {
-    echo " genre not null";
     $produits = Controller::getProduitByGenre();
 }
 ?>
