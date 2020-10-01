@@ -14,7 +14,6 @@ if ((isset($_POST['categorie']) && $_POST['categorie'] != "") && (isset($_POST['
     $produits = Controller::getProduitByGenre();
 }
 
-$produits = Controller::getProduits();
 $linkToProduit = Controller::redirectTo('fiche_produit.php');
 $linkToPanier = Controller::redirectTo('add_produit_to_panier.php');
 ?>
