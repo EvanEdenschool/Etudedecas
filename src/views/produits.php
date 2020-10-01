@@ -15,7 +15,7 @@ if ((isset($_POST['categorie']) && $_POST['categorie'] != "") && (isset($_POST['
 }
 
 $linkToProduit = Controller::redirectTo('fiche_produit.php');
-$linkToPanier = Controller::redirectTo('add_produit_to_panier.php');
+$linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
 ?>
 <div class="container separateur">
 </div>
@@ -73,7 +73,7 @@ $linkToPanier = Controller::redirectTo('add_produit_to_panier.php');
                         <p class="categorie"><?= $produit['categorie'] ?></p>
                         <h3 class="titre"><?= $produit['nom'] ?></h3>
                         <h4 class="prix"><?= $produit['prix'] . ' €' ?></h4>
-                        <a href="<?=$linkToPanier?>?id_p=<?= $produit['id_produit'] ?>"
+                        <a href="<?=$linkToAddPanier?>?id_p=<?= $produit['id_produit'] ?>"
                            class="btn btn-danger addToCart">
                             <span class="glyphicon glyphicon glyphicon-plus"
                                   data-idProduit="<?= $produit['id_produit'] ?>"></span>
