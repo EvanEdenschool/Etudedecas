@@ -116,6 +116,23 @@ if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
             margin-bottom: 10px;
         }
 
+        /* STYLE MOBILE */
+        @media screen and (max-width: 530px) {
+
+        .menu {
+            display: none;
+        }
+
+        }
+
+
+        @media screen and (min-width: 530px) {
+
+        .smallMenu {
+            display: none;
+        }
+
+        }
     </style>
     <title>Mon compte</title>
 </head>

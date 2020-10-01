@@ -111,7 +111,23 @@ require "../core.php";
         .card {
             border-radius: 3px;
         }
+        /* STYLE MOBILE */
+        @media screen and (max-width: 530px) {
 
+        .menu {
+            display: none;
+        }
+
+        }
+
+
+        @media screen and (min-width: 530px) {
+
+        .smallMenu {
+            display: none;
+        }
+
+        }
 
     </style>
     <title>Mon panier</title>
