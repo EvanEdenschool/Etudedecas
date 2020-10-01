@@ -2,6 +2,11 @@
 
 </div>
 
+<div class="container">
+    <div class="row">
+        <h2 style="text-align: center;">Les derniers ajouts</h2>
+    </div>
+</div>
 
 <div class="slide_inside container-fluid">
 
