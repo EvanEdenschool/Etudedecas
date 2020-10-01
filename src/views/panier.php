@@ -2,6 +2,9 @@
 session_start();
 require "../core.php";
 
+if(isset($_POST['test'])) {
+    Controller::createCommande();
+}
 
 ?>
 <!DOCTYPE html>
@@ -133,7 +136,6 @@ require "../core.php";
     <title>Mon panier</title>
 </head>
 <body>
-
     <?php
         include ("header.php");
     ?>
@@ -158,20 +160,19 @@ require "../core.php";
                             </thead>
                             <tbody>
                             <?php
-                            if((isset($_SESSION['panier']  ) && $_SESSION['panier'] !="")) {
-                                foreach($_SESSION['panier'] as $panierProduit) {?>
+                            if(isset($_SESSION['panier'])) {
+                                foreach ($_SESSION['panier'] as $panierProduit) { ?>
                                     <tr>
-                                        <td><?= $panierProduit['quantite'] ?></td>
-                                        <td class="middle"><?= $panierProduit['nom'] ?></td>
-                                        <td class="middle"><?= $panierProduit['prix'] ?>€</td>
-                                        <td><a href="" class="glyphicon glyphicon-trash"></a></td>
+                                        <td><?= isset($panierProduit['quantite']) ? $panierProduit['quantite'] : "" ?></td>
+                                        <td class="middle"><?= isset($panierProduit['nom']) ? $panierProduit['nom'] : "" ?></td>
+                                        <td><?= isset($panierProduit['prix']) ? $panierProduit['prix'] : "" ?>€</td>
                                     </tr>
-                                <?php }?>
-                            <?php }else {?>
-                                <tr>
-                                        <td> Votre panier est vide ! </td>
-                                </tr>
-                            <?php }?>
+                                <?php }
+                            } else {?>
+                                    <tr>
+                                        <td class="middle" colspan="3"><p>Le panier est vide</p></td>
+                                    </tr>
+                            <?php } ?>
                             </tbody>
                         </table>
                     </div><br/><br/><br/>
@@ -182,18 +183,16 @@ require "../core.php";
                                 <tr style="border: none;">
                                     <!-- <td style="visibility: hidden;"><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a>1</td> -->
                                     <td style="text-align: center;">Montant total :</td>
-                                    <?php
-                                        if((isset($_SESSION['panier']  ) && $_SESSION['panier'] !="")) { ?>
-                                        <td style="text-align: center;"><?= $_SESSION['prix_total'] ?>€</td>
-                                        <?php } else {?>
-                                        <td> 0 € </td>
-                                        <?php }?>
+                                    <td style="text-align: center;"><?= isset($_SESSION['prix_total']) ? $_SESSION['prix_total'] : "0" ?>€</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div><br/><br/><br/>
                     <div class="justify-content-right col-md-6 offset-md-7">
-                        <div class="btn btn-default" style="color: #d9534f; font-weight: bold; margin-right: 28px">Valider mon panier</div>
+                        <form method="post">
+                            <input type="hidden" name="test" value="yop">
+                            <button class="btn btn-default" type="submit" style="color: #d9534f; font-weight: bold; margin-right: 28px">Valider mon panier</button>
+                        </form>
                     </div>
                 </div>
             </div>
