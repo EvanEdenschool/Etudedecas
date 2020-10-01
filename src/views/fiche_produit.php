@@ -121,6 +121,56 @@ $linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
             line-height: 30px;
         }
 
+<<<<<<< Updated upstream
+        /* HEADER MOBILE */
+        @media screen and (max-width: 530px) {
+
+        .menu {
+            display: none;
+        }
+        h2 {
+            color: #FFFFFF;
+        }
+        .navbar-header {
+            background-color: #d9534f;
+        }
+        .icon-bar {
+            background-color: #FFFFFF;
+        }
+
+        }
+
+
+        @media screen and (min-width: 530px) {
+
+        .smallMenu {
+            display: none;
+        }
+=======
+        /* STYLE MOBILE */
+        @media screen and (max-width: 530px) {
+
+            .menu {
+                display: none;
+            }
+            .navbar-header {
+                background-color: #d9534f;
+            }
+            h2 {
+                color: #FFFFFF;
+            }
+
+        }
+
+        @media screen and (min-width: 530px) {
+
+            .smallMenu {
+                display: none;
+            }
+>>>>>>> Stashed changes
+
+        }
+
     </style>
   </head>
   <body>
