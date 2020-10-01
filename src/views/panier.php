@@ -158,25 +158,36 @@ require "../core.php";
                             </thead>
                             <tbody>
                             <?php
-                            foreach($_SESSION['panier'] as $panierProduit) {?>
+                            if((isset($_SESSION['panier']  ) && $_SESSION['panier'] !="")) {
+                                foreach($_SESSION['panier'] as $panierProduit) {?>
+                                    <tr>
+                                        <td><?= $panierProduit['quantite'] ?></td>
+                                        <td class="middle"><?= $panierProduit['nom'] ?></td>
+                                        <td class="middle"><?= $panierProduit['prix'] ?>€</td>
+                                        <td><a href="" class="glyphicon glyphicon-trash"></a></td>
+                                    </tr>
+                                <?php }?>
+                            <?php }else {?>
                                 <tr>
-                                    <td><?= $panierProduit['quantite'] ?></td>
-                                    <td class="middle"><?= $panierProduit['nom'] ?></td>
-                                    <td class="middle"><?= $panierProduit['prix'] ?>€</td>
-                                    <td><a href="" class="glyphicon glyphicon-trash"></a></td>
+                                        <td> Votre panier est vide ! </td>
                                 </tr>
                             <?php }?>
-
                             </tbody>
                         </table>
                     </div><br/><br/><br/>
                     <div class="card justify-content-right col-md-6 offset-md-6">
                         <table>
                             <tbody>
+                            
                                 <tr style="border: none;">
                                     <!-- <td style="visibility: hidden;"><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a>1</td> -->
                                     <td style="text-align: center;">Montant total :</td>
-                                    <td style="text-align: center;"><?= $_SESSION['prix_total'] ?>€</td>
+                                    <?php
+                                        if((isset($_SESSION['panier']  ) && $_SESSION['panier'] !="")) { ?>
+                                        <td style="text-align: center;"><?= $_SESSION['prix_total'] ?>€</td>
+                                        <?php } else {?>
+                                        <td> 0 € </td>
+                                        <?php }?>
                                 </tr>
                             </tbody>
                         </table>
