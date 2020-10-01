@@ -139,26 +139,15 @@ require "../core.php";
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                            foreach($_SESSION['panier'] as $panierProduit) {?>
                                 <tr>
-                                    <td><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a>1</td>
-                                    <td class="middle">Test</td>
-                                    <td>16€</td>
+                                    <td><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a><?= $panierProduit['quantite'] ?></td>
+                                    <td class="middle"><?= $panierProduit['nom'] ?></td>
+                                    <td><?= $panierProduit['prix'] ?>€</td>
                                 </tr>
-                                <tr>
-                                    <td><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a>1</td>
-                                    <td class="middle">Test 1</td>
-                                    <td>18€</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a>1</td>
-                                    <td class="middle">Test 2</td>
-                                    <td>25€</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a>1</td>
-                                    <td class="middle">Test 3</td>
-                                    <td>13.95€</td>
-                                </tr>
+                            <?php }?>
+
                             </tbody>
                         </table>
                     </div><br/><br/><br/>
@@ -168,7 +157,7 @@ require "../core.php";
                                 <tr style="border: none;">
                                     <!-- <td style="visibility: hidden;"><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a>1</td> -->
                                     <td style="text-align: center;">Montant total :</td>
-                                    <td style="text-align: center;">13.95€</td>
+                                    <td style="text-align: center;"><?= $_SESSION['prix_total'] ?>€</td>
                                 </tr>
                             </tbody>
                         </table>
