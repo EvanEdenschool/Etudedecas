@@ -44,6 +44,7 @@
           }
 
       }
+      /* On verifi si l'ultitisateur existe*/
       public static function authentification($email, $password) {
 
         $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE email = ?");
@@ -55,5 +56,13 @@
         } else {
           return false;
         }
+      }
+
+      /*On recupere l'utilisateur et on modifie*/
+      public static function updateUserAddress($id, $adresse){
+        $query = Model::getPDO()->prepare("UPDATE utilisateurs SET adresse =:adresse WHERE utilisateurs.id_utilisateur =:id" );
+        $query->execute(array(':adresse' => $adresse, ':id' => $id));      
+        return self::getUtilisateurById($id);
+
       }
     }

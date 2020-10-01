@@ -1,6 +1,8 @@
 <?php
 
 class Controller {
+
+    /*Utilisateur*/
     // fonction d'inscription
     public static function inscription()
     {
@@ -24,6 +26,14 @@ class Controller {
         $user = Utilisateur::getUtilisateurById($id);
         return $user;
     }
+    /* Mise a jour de l'adresse de l'utilisateur*/
+    
+    public static function updateUserAddress($id) {
+        $adresse= $_POST['adresse_update'];
+        $user = Utilisateur::updateUserAddress($id, $adresse);
+        return $user;
+    }
+    /*Utilisateur*/
 
 
     /* Produits */
