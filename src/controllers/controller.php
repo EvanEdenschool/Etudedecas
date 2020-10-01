@@ -83,6 +83,11 @@ class Controller {
         return $produit = Produit::findbyGenre($genre);
     }
 
+    public static function getFicheProduit($id) {
+        return $produit = Produit::getProduitById($id);
+
+    }
+
     /* Produits */
 
     //fonction connexion
