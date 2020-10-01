@@ -101,6 +101,29 @@ class Controller {
         }
     }
 
+    //fonction de redirection
+    public static function redirectTo($page_vise) {
+        $exploded_url = explode('/', $_SERVER['REQUEST_URI']);
+        // si le dernier element du tableau = null alors on et pas sur la page principale
+        if(end($exploded_url) == "") {
+            array_pop($exploded_url);
+            if(end($exploded_url) == "src") {
+                $link = "views/" . $page_vise;
+            }
+        } // sinon on
+        else {
+            array_pop($exploded_url);
+            if(end($exploded_url) == 'views') {
+                if($page_vise != 'home') {
+                    $link = "./" . $page_vise;
+                } else {
+                    $link = '../' . $page_vise;
+                }
+            }
+        }
+        return $link;
+    }
+
 
  
    
