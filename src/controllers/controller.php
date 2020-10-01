@@ -133,16 +133,29 @@ class Controller {
     public static function addProduitToPanier()
     {
         $produit = Controller::getProduitById($_GET['id_p']);
-        $_SESSION['panier']['produit_' . $produit['id_produit']] = array(
-            'id_produit' => $produit['id_produit'],
-            'nom' => $produit['nom'],
-            'image' => $produit['image'],
-            'prix' => $produit['prix'],
-        );
-        if (!isset($_SESSION['panier']['count'])) {
-            $_SESSION['panier']['count'] = 0;
+        if(is_numeric($_GET['id_p']) && $_GET['id_p'] != "") {
+            controller::addProduitToPanier();
         }
-        $_SESSION['panier']['count']++;
+
+        if(!isset($_SESSION['panier']['produit_' . $produit['id_produit']])) {
+            $_SESSION['panier']['produit_' . $produit['id_produit']] = array(
+                'id_produit' => $produit['id_produit'],
+                'nom' => $produit['nom'],
+                'image' => $produit['image'],
+                'prix' => $produit['prix'],
+                'quantite' => 1,
+            );
+        } else if (isset($_SESSION['panier']['produit_' . $produit['id_produit']])) {
+            $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite']++;
+            $_SESSION['panier']['produit_' . $produit['id_produit']]['prix'] += $_SESSION['panier']['produit_' . $produit['id_produit']]['prix'];
+        }
+        if (!isset($_SESSION['count'])) {
+            $_SESSION['count'] = 0;
+            $_SESSION['prix_total'] = 0;
+
+        }
+        $_SESSION['prix_total'] += ($_SESSION['panier']['produit_' . $produit['id_produit']]['prix'] * $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite']);
+        $_SESSION['count'] += $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'];
         header('Location:../');
     }
     /* Panier */
