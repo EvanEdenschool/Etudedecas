@@ -39,16 +39,16 @@ class Controller {
     }
 
     public static function saveProduit() {
-        $nom = $_POST['nom_produit'];
-        $categorie = $_POST['categorie_produit'];
-        $genre = $_POST['genre_produit'];
-        $description = $_POST['description_produit'];
-        $image = $_POST['image_produit'];
-        $prix = $_POST['prix_produit'];
-        $disponibilite = $_POST['disponibilite_produit'];
+        $nom = isset($_POST['nom_produit']) ? $_POST['nom_produit'] : null ;
+        $categorie = isset($_POST['categorie_produit']) ? $_POST['categorie_produit'] : null ;
+        $genre = isset($_POST['genre_produit']) ? $_POST['genre_produit'] : null;
+        $description = isset($_POST['description_produit']) ? $_POST['description_produit'] : null;
+        $image = isset($_POST['image_produit']) ? $_POST['image_produit'] : null ;
+        $prix = isset($_POST['prix_produit']) ? $_POST['prix_produit'] : null ;
+        $disponibilite = isset($_POST['disponibilite_produit']) ? $_POST['disponibilite_produit'] : null;
         $date_edition = date('Y-m-d H:i:s'); // date du jour
-        $editeur = $_POST['editeur_produit'];
-        $auteur = $_SESSION['email'];
+        $editeur = isset($_POST['editeur_produit']) ? $_POST['editeur_produit'] : null ; 
+        $auteur = isset($_SESSION['email']) ? $_SESSION['email'] : null;
         // Si le produit a bien été sauvegardé
         if(Produit::saveProduit($nom,$categorie,$genre,$description,$image,$prix,$disponibilite,$date_edition,$editeur,$auteur)) {
             echo "Le produit a bien été enregistré";
@@ -57,14 +57,30 @@ class Controller {
         }
 
     }
-
-    //fonction de recupération des produit par critere de selection
-    public static function getProduitByCriteres () {
+     //fonction de recupération des produits par critere de selection
+     public static function getProduitByCriteres() {
         $categorie = $_POST['categorie'];
         $genre = $_POST['genre'];
         $prix = $_POST['prix'];
         //
-        return $produits = Produit::getFilteredProducts($categorie,$genre);
+        return $produits = Produit::getFilteredProducts($categorie,$genre,$prix);
+    }
+
+    //fonction de recuperation des prodduits par categorie
+    public static function getProduitByCategorie() {
+        $categorie = $_POST['categorie'];
+        return $produits = Produit::findBycategorie($categorie);
+    }
+
+    //fonction de recuperation des produits par prix croissant ou decroisssant
+    public static function getProduitByPrix() {
+        $prix = $_POST['prix'];
+        return $produits = Produit::findByPrix($prix);
+    } 
+    //function de recuperation des produit par genre
+    public static function getProduitByGenre () {
+        $genre = $_POST['genre'];
+        return $produit = Produit::findbyGenre($genre);
     }
 
     /* Produits */
@@ -85,6 +101,9 @@ class Controller {
         }
     }
 
+
+ 
+   
 
 
     /* Panier */
