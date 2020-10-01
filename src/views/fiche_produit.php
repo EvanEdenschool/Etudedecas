@@ -134,6 +134,10 @@ require "../core.php";
                 <main class="col-md-6">
                     <article>
                         <img src="../img/dvd2.jpg" alt="../img/dvd2.jpg" title="Black Panther">
+                        <a href="" class="btn btn-danger addToCart" style="margin-right: 115px;">
+                            <span class="glyphicon glyphicon glyphicon-plus"></span>
+                            Ajouter au panier
+                        </a>
                     </article>
                 </main>
                 <aside class="col-md-6">
