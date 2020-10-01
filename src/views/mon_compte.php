@@ -2,6 +2,11 @@
 session_start();
 require ("../core.php");
 $user = Controller::getUtilisateurById($_GET['id']);
+
+if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
+    print_r($_GET['id']);
+    $user = Controller::updateUserAddress($_GET['id']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -158,8 +163,11 @@ $user = Controller::getUtilisateurById($_GET['id']);
                         <div class="card-header"><h3>Modifier mes informations</h3></div>
                             <div class="card-body">
                                 <h5>Enregistrer une nouvelle adresse de livraison :</h5>
-                                <input type="text" name="adresse_update" id="adresse_update" style="width: 300px;">
-                                <button type="submit" name="valider" id="bouton_adresse_update">Valider</button>
+                                <form name="form_mon_compte" action ="" method="post">
+                                    <input type="text" name="adresse_update" id="adresse_update" style="width: 300px;">
+                                    <button type="submit" name="valider" id="bouton_adresse_update">Valider</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
