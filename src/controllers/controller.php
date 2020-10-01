@@ -133,9 +133,6 @@ class Controller {
     public static function addProduitToPanier()
     {
         $produit = Controller::getProduitById($_GET['id_p']);
-        if(is_numeric($_GET['id_p']) && $_GET['id_p'] != "") {
-            controller::addProduitToPanier();
-        }
 
         if(!isset($_SESSION['panier']['produit_' . $produit['id_produit']])) {
             $_SESSION['panier']['produit_' . $produit['id_produit']] = array(
