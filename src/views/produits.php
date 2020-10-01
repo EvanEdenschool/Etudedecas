@@ -79,6 +79,19 @@ $linkToPanier = Controller::redirectTo('add_produit_to_panier.php');
                                   data-idProduit="<?= $produit['id_produit'] ?>"></span>
                             Ajouter au panier
                         </a>
+                        
+                        <select name="quantite" id="quantite">
+                            <option value="quantite">1</option>
+                            <option value="quantite">2</option>
+                            <option value="quantite">3</option>
+                            <option value="quantite">4</option>
+                            <option value="quantite">5</option>
+                            <option value="quantite">6</option>
+                            <option value="quantite">7</option>
+                            <option value="quantite">8</option>
+                            <option value="quantite">9</option>
+                            <option value="quantite">10</option>
+                        </select>
                     </div>
                 <?php }
             }

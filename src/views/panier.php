@@ -142,7 +142,7 @@ require "../core.php";
                             <?php
                             foreach($_SESSION['panier'] as $panierProduit) {?>
                                 <tr>
-                                    <td><a href="" class="glyphicon glyphicon-plus"></a><a href="" class="glyphicon glyphicon-minus"></a><?= $panierProduit['quantite'] ?></td>
+                                    <td><?= $panierProduit['quantite'] ?></td>
                                     <td class="middle"><?= $panierProduit['nom'] ?></td>
                                     <td><?= $panierProduit['prix'] ?>€</td>
                                 </tr>
