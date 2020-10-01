@@ -154,7 +154,7 @@ $linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
                             <td><h3>Titre : <span><?= $produit['nom'] ?></span></h3></td> 
                         </tr>
                         <tr>
-                            <td><h3>Prix : <span><?= $produit['prix'] ?></span></h3></td> 
+                            <td><h3>Prix : <span><?= $produit['prix'] ?> €</span></h3></td> 
                         </tr>
                         <tr>
                             <td><h3>Catégorie : <span><?= $produit['categorie'] ?></span></h3></td> 
