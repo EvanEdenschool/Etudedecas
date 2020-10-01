@@ -144,20 +144,20 @@ class Controller {
                 'id_produit' => $produit['id_produit'],
                 'nom' => $produit['nom'],
                 'image' => $produit['image'],
-                'prix' => $produit['prix'],
-                'quantite' => 1,
+                'prix' => $produit['prix'] * $_GET['quantite'],
+                'quantite' => $_GET['quantite'],
             );
         } else if (isset($_SESSION['panier']['produit_' . $produit['id_produit']])) {
-            $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite']++;
-            $_SESSION['panier']['produit_' . $produit['id_produit']]['prix'] += $_SESSION['panier']['produit_' . $produit['id_produit']]['prix'];
+            $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'] += $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'];
+            $_SESSION['panier']['produit_' . $produit['id_produit']]['prix'] += ($produit['prix'] * $_GET['quantite']);
         }
         if (!isset($_SESSION['count'])) {
             $_SESSION['count'] = 0;
             $_SESSION['prix_total'] = 0;
 
         }
-        $_SESSION['prix_total'] += ($_SESSION['panier']['produit_' . $produit['id_produit']]['prix'] * $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite']);
-        $_SESSION['count'] += $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'];
+        $_SESSION['prix_total'] += ($produit['prix'] * $_GET['quantite']);
+        $_SESSION['count'] += $_GET['quantite'];
         header('Location:../');
     }
     /* Panier */

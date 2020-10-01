@@ -66,32 +66,34 @@ $linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
         if(!empty($produits)) {
             foreach($produits as $produit) {
                 if ($produit['disponibilite'] > 0) { ?>
-                    <div class="col-md-3 produits" style="padding-top: 30px;">
+                    <div class="col-md-3 produits"style="padding-top: 30px;">
+                        <form method="get" action="./<?=$linkToAddPanier?>">
                         <a href="./<?=$linkToProduit?>?id=<?= $produit['id_produit'] ?>"><img
                                     src="./img/<?= $produit['image'] ?>" alt=""></a>
                         <hr/>
                         <p class="categorie"><?= $produit['categorie'] ?></p>
                         <h3 class="titre"><?= $produit['nom'] ?></h3>
                         <h4 class="prix"><?= $produit['prix'] . ' €' ?></h4>
-                        <a href="<?=$linkToAddPanier?>?id_p=<?= $produit['id_produit'] ?>"
+                        <button type="submit"
                            class="btn btn-danger addToCart">
                             <span class="glyphicon glyphicon glyphicon-plus"
                                   data-idProduit="<?= $produit['id_produit'] ?>"></span>
                             Ajouter au panier
-                        </a>
-                        
+                        </button>
+                        <input type="hidden" name="id_p" value="<?= $produit['id_produit'] ?>" />
                         <select name="quantite" id="quantite">
-                            <option value="quantite">1</option>
-                            <option value="quantite">2</option>
-                            <option value="quantite">3</option>
-                            <option value="quantite">4</option>
-                            <option value="quantite">5</option>
-                            <option value="quantite">6</option>
-                            <option value="quantite">7</option>
-                            <option value="quantite">8</option>
-                            <option value="quantite">9</option>
-                            <option value="quantite">10</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
                         </select>
+                        </form>
                     </div>
                 <?php }
             }
