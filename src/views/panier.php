@@ -1,3 +1,8 @@
+<?php
+session_start();
+require "../core.php";
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

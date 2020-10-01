@@ -13,6 +13,10 @@ if ((isset($_POST['categorie']) && $_POST['categorie'] != "") && (isset($_POST['
 }else if ((isset($_POST['genre']) && $_POST['genre'] != "") ) {
     $produits = Controller::getProduitByGenre();
 }
+
+$produits = Controller::getProduits();
+$linkToProduit = Controller::redirectTo('fiche_produit.php');
+$linkToPanier = Controller::redirectTo('add_produit_to_panier.php');
 ?>
 <div class="container separateur">
 </div>
@@ -64,13 +68,13 @@ if ((isset($_POST['categorie']) && $_POST['categorie'] != "") && (isset($_POST['
             foreach($produits as $produit) {
                 if ($produit['disponibilite'] > 0) { ?>
                     <div class="col-md-3 produits">
-                        <a href="views/fiche_produit.php?id=<?= $produit['id_produit'] ?>"><img
+                        <a href="./<?=$linkToProduit?>?id=<?= $produit['id_produit'] ?>"><img
                                     src="./img/<?= $produit['image'] ?>" alt=""></a>
                         <hr/>
                         <p class="categorie"><?= $produit['categorie'] ?></p>
                         <h3 class="titre"><?= $produit['nom'] ?></h3>
                         <h4 class="prix"><?= $produit['prix'] . ' €' ?></h4>
-                        <a href="./views/add_produit_to_panier.php?id_p=<?= $produit['id_produit'] ?>"
+                        <a href="<?=$linkToPanier?>?id_p=<?= $produit['id_produit'] ?>"
                            class="btn btn-danger addToCart">
                             <span class="glyphicon glyphicon glyphicon-plus"
                                   data-idProduit="<?= $produit['id_produit'] ?>"></span>
