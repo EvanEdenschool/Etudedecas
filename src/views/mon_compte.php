@@ -164,7 +164,7 @@ if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
                             <div class="card-body">
                                 <h5>Enregistrer une nouvelle adresse de livraison :</h5>
                                 <form name="form_mon_compte" action ="" method="post">
-                                    <input type="text" name="adresse_update" id="adresse_update" style="width: 300px;">
+                                    <input type="text" name="adresse_update" id="adresse_update" style="width: 200px;">
                                     <button type="submit" name="valider" id="bouton_adresse_update">Valider</button>
                                 </form>
 
