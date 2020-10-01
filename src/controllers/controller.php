@@ -140,8 +140,22 @@ class Controller {
     }
 
 
- 
-   
+    /* Commande */
+    public static function createCommande() {
+        if(Commande::saveCommande(date('Y-m-d H:i:s'), $_SESSION['prix_total'], date('Y-m-d H:i:s'), $_SESSION['user_id'])) {
+            $commandes = Commande::getCommandesByUser($_SESSION['user_id']);
+            foreach($_SESSION['panier'] as $produit) {
+                Commande::saveProduitByCommande($commandes[0]['id_commande'], $produit['id_produit'], $produit['quantite']);
+            }
+            unset($_SESSION['panier']);
+            unset($_SESSION['prix_total']);
+            unset($_SESSION['count']);
+        } else {
+            echo 'nope';
+        }
+
+   }
+    /* Commande */
 
 
     /* Panier */
@@ -158,7 +172,7 @@ class Controller {
                 'quantite' => $_GET['quantite'],
             );
         } else if (isset($_SESSION['panier']['produit_' . $produit['id_produit']])) {
-            $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'] += $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'];
+            $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'] += $_GET['quantite'];
             $_SESSION['panier']['produit_' . $produit['id_produit']]['prix'] += ($produit['prix'] * $_GET['quantite']);
         }
         if (!isset($_SESSION['count'])) {
