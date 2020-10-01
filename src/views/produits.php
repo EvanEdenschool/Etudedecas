@@ -66,7 +66,7 @@ $linkToPanier = Controller::redirectTo('add_produit_to_panier.php');
         if(!empty($produits)) {
             foreach($produits as $produit) {
                 if ($produit['disponibilite'] > 0) { ?>
-                    <div class="col-md-3 produits">
+                    <div class="col-md-3 produits" style="padding-top: 30px;">
                         <a href="./<?=$linkToProduit?>?id=<?= $produit['id_produit'] ?>"><img
                                     src="./img/<?= $produit['image'] ?>" alt=""></a>
                         <hr/>
