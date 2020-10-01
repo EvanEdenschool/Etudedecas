@@ -165,7 +165,8 @@ if(isset($_POST['test'])) {
                                     <tr>
                                         <td><?= isset($panierProduit['quantite']) ? $panierProduit['quantite'] : "" ?></td>
                                         <td class="middle"><?= isset($panierProduit['nom']) ? $panierProduit['nom'] : "" ?></td>
-                                        <td><?= isset($panierProduit['prix']) ? $panierProduit['prix'] : "" ?>€</td>
+                                        <td class="middle"><?= isset($panierProduit['prix']) ? $panierProduit['prix'] : "" ?>€</td>
+                                        <td><a href="" class="glyphicon glyphicon-trash"></a></td>
                                     </tr>
                                 <?php }
                             } else {?>
