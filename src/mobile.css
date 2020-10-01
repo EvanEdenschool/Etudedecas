@@ -1,8 +1,25 @@
 @media screen and (max-width: 530px) {
 
-    #searchBtn, #site-search {
+    .menu {
         display: none;
+    }
+    h2 {
+        color: #FFFFFF;
+    }
+    .navbar-header {
+        background-color: #d9534f;
+    }
+    .icon-bar {
+        background-color: #FFFFFF;
     }
 
 }
 
+
+@media screen and (min-width: 530px) {
+ 
+    .smallMenu {
+        display: none;
+    }
+
+}
