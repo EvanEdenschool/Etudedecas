@@ -1,6 +1,9 @@
 <?php
 session_start();
 require "../core.php";
+$produit = controller::getProduitById($_GET['id']);
+$linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
+
 ?>
 
 <html lang="fr" dir="ltr">
@@ -133,49 +136,52 @@ require "../core.php";
             <div class="row boiteProduit col-md-8 col-md-offset-2">
                 <main class="col-md-6">
                     <article>
-                        <img src="../img/dvd2.jpg" alt="../img/dvd2.jpg" title="Black Panther">
-                        <a href="" class="btn btn-danger addToCart" style="margin-right: 115px;">
+                        <img src="../img/<?= $produit['image'] ?>" alt="../img/dvd2.jpg" title="Black Panther">
+                        <a href="<?=$linkToAddPanier?>?id_p=<?= $produit['id_produit'] ?>" 
+                        class="btn btn-danger addToCart" style="margin-right: 115px;">
                             <span class="glyphicon glyphicon glyphicon-plus"></span>
                             Ajouter au panier
                         </a>
                     </article>
                 </main>
                 <aside class="col-md-6">
+                <?php if(!empty($produit)){
+
+            ?>
+               
                     <tbody>
                         <tr>
-                            <td><h3>Titre : <span>Black Panther</span></h3></td> 
+                            <td><h3>Titre : <span><?= $produit['nom'] ?></span></h3></td> 
                         </tr>
                         <tr>
-                            <td><h3>Prix : <span>19.90€</span></h3></td> 
+                            <td><h3>Prix : <span><?= $produit['prix'] ?></span></h3></td> 
                         </tr>
                         <tr>
-                            <td><h3>Catégorie : <span>Action</span></h3></td> 
+                            <td><h3>Catégorie : <span><?= $produit['categorie'] ?></span></h3></td> 
                         </tr>
                         <tr>
-                            <td><h3>Disponibilité : <span>En stock</span></h3></td> 
+                            <td><h3>Disponibilité : <span><?= $produit['disponibilite'] ?></span></h3></td> 
                         </tr>
                         <tr>
-                            <td><h3>Année de sortie : <span>2018</span></h3></td> 
+                            <td><h3>Année de sortie : <span><?= $produit['date_edition'] ?></span></h3></td> 
                         </tr>
                         <tr>
-                            <td><h3>Auteur/Réalisateur : <span>Ryan Coogler</span></h3></td> 
+                            <td><h3>Auteur/Réalisateur : <span><?= $produit['auteur'] ?></span></h3></td> 
                         </tr>
                         <tr>
-                            <td><h3>Editeur : <span>Marvel Studios</span></h3></td> 
+                            <td><h3>Editeur : <span><?= $produit['editeur'] ?></span></h3></td> 
                         </tr>
                     </tbody>
+                    <?php
+                     }
+                    ?>
                 </aside>
 
                 <div class="col-md-12 description">
                     <hr/><h3>Résumé :</h3>
-                    <p>Après avoir participé à l'affrontement entre Iron Man et Captain America, 
-                        le prince T'Challa retourne chez lui dans la nation africaine reculée et 
-                        technologiquement avancée du Wakanda, pour servir son pays en tant que 
-                        nouveau roi. Cependant, le pouvoir de T'Challa va bientôt être défié par 
-                        des membres de son propre pays. Quand deux ennemis conspirent pour détruire 
-                        le Wakanda, la Panthère noire doit s'allier à l'agent de la CIA Everett 
-                        K. Ross et aux membres du Dora Milaje, les forces spéciales du Wakanda, 
-                        pour éviter que le pays ne soit emporté dans un conflit mondial.</p>
+                    <?php if(!empty($produit)){ ?>
+                    <p><?=$produit['description'] ?></p>
+                    <?php }?>
                 </div>
             </div>
         </div>
