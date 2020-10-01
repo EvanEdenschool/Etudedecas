@@ -156,8 +156,7 @@ class Controller {
         }
         $_SESSION['prix_total'] += ($_SESSION['panier']['produit_' . $produit['id_produit']]['prix'] * $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite']);
         $_SESSION['count'] += $_SESSION['panier']['produit_' . $produit['id_produit']]['quantite'];
-
-
+        header('Location:../');
     }
     /* Panier */
 
