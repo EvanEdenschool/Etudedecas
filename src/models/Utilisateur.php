@@ -50,7 +50,7 @@
         $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE email = ?");
         $query->execute([$email]);
         $user = $query->fetch();
-        if ( password_verify($user['password'], $password))
+        if ( password_verify($password, $user['password']))
         {
           return $user;
         } else {
