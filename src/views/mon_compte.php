@@ -2,7 +2,7 @@
 session_start();
 require ("../core.php");
 $user = Controller::getUtilisateurById($_GET['id']);
-
+$commandes = Controller::getHistoriqueCommandes();
 if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
     print_r($_GET['id']);
     $user = Controller::updateUserAddress($_GET['id']);
@@ -22,6 +22,23 @@ if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="../js/index.js"></script>
     <style type="text/css">
+        thead {
+            font-size: 2.5rem;
+            color: #d9534f;
+        }
+        tr {
+            border-bottom: 1px solid #000000;
+        }
+        th {
+            text-align: center;
+        }
+        td {
+            font-size: 1.3rem;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
         #header {
             background-color: #FFFFFF;
             min-height: 120px;
@@ -164,7 +181,33 @@ if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
                     <div class="card">
                         <div class="card-header"><h3>Historique de mes commandes</h3></div>
                             <div class="card-body">
-                                <h5 class="card-text"> vide</h5>
+                                <table border="1" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Descriptif</th>
+                                            <th>Prix</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($commandes as $key => $commande) {
+                                            $produits = Controller::getProduitsCommande($commande['id_commande'])?>
+                                            <tr>
+                                                <td><?= date('d/m/Y', strtotime($commande['date_commande'])) ?></td>
+                                                <td>
+                                                    <?php
+                                                    $this_produit = array();
+                                                    foreach($produits as $key => $produit) {
+                                                        $this_produit[$key] = Controller::getProduitById($produit['id_produit']);?>
+                                                        <p><?= $this_produit[$key]['nom'] . ' x ' . $produit['quantite'] ?></p>
+                                                    <?php
+                                                    } ?>
+                                                </td>
+                                                <td><?= $commande['montant_tot'] . ' €'?></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
