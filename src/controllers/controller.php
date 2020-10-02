@@ -104,7 +104,7 @@ class Controller {
     //fonction connexion
     public static function connexion() {
         $email = $_POST['email'];
-        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $password = $_POST['password'];
         //si l'utilisateur existe
         $user = Utilisateur::authentification($email,$password);
         if(isset($user) && $user) {
@@ -112,7 +112,7 @@ class Controller {
             session_start();
             $_SESSION['user_id'] = $user['id_utilisateur'];
             $_SESSION['email'] = $user['email'];
-        }else {
+        } else {
             echo "email ou mot de passe invalide";
         }
     }
