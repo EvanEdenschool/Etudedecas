@@ -190,20 +190,27 @@ if ((isset($_POST['adresse_update'])&& $_POST['adresse_update'] != "")) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach($commandes as $key => $commande) {
-                                            $produits = Controller::getProduitsCommande($commande['id_commande'])?>
+                                        <?php
+                                        if(isset($commandes) && $commandes) {
+                                            foreach($commandes as $key => $commande) {
+                                                $produits = Controller::getProduitsCommande($commande['id_commande'])?>
+                                        <tr>
+                                            <td><?= date('d/m/Y', strtotime($commande['date_commande'])) ?></td>
+                                            <td>
+                                                <?php
+                                                $this_produit = array();
+                                                foreach ($produits as $key => $produit) {
+                                                    $this_produit[$key] = Controller::getProduitById($produit['id_produit']); ?>
+                                                    <p><?= $this_produit[$key]['nom'] . ' x ' . $produit['quantite'] ?></p>
+                                                    <?php
+                                                } ?>
+                                            </td>
+                                            <td><?= $commande['montant_tot'] . ' €' ?></td>
+                                        </tr>
+                                        <?php }
+                                        } else { ?>
                                             <tr>
-                                                <td><?= date('d/m/Y', strtotime($commande['date_commande'])) ?></td>
-                                                <td>
-                                                    <?php
-                                                    $this_produit = array();
-                                                    foreach($produits as $key => $produit) {
-                                                        $this_produit[$key] = Controller::getProduitById($produit['id_produit']);?>
-                                                        <p><?= $this_produit[$key]['nom'] . ' x ' . $produit['quantite'] ?></p>
-                                                    <?php
-                                                    } ?>
-                                                </td>
-                                                <td><?= $commande['montant_tot'] . ' €'?></td>
+                                                <td colspan="3">Aucune commande</td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

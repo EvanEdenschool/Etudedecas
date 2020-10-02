@@ -121,7 +121,6 @@ $linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
             line-height: 30px;
         }
 
-<<<<<<< Updated upstream
         /* HEADER MOBILE */
         @media screen and (max-width: 530px) {
 
@@ -146,7 +145,6 @@ $linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
         .smallMenu {
             display: none;
         }
-=======
         /* STYLE MOBILE */
         @media screen and (max-width: 530px) {
 
@@ -167,7 +165,6 @@ $linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
             .smallMenu {
                 display: none;
             }
->>>>>>> Stashed changes
 
         }
 
