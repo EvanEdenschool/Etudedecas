@@ -16,12 +16,24 @@
           }
       }
 
+      public static function getProduitByCommande($commande_id){
+          $query = Model::getPDO()->prepare("SELECT * FROM contient WHERE id_commande = ?");
+          $query->execute([$commande_id]);
+          $commandes = $query->fetchAll();
+          if($commandes){
+
+              return $commandes;
+          } else {
+              return false;
+          }
+      }
+
       public static function getCommandesByUser($user_id) {
           $query = Model::getPDO()->prepare("SELECT * FROM commandes WHERE id_utilisateur = ? ORDER BY commandes.date_commande DESC");
           $query->execute([$user_id]);
-          $commandes = $query->fetchAll();
-          if($commandes){
-              return $commandes;
+          $users = $query->fetchAll();
+          if($users){
+              return $users;
           } else {
               return false;
           }

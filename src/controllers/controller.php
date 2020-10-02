@@ -33,6 +33,7 @@ class Controller {
         $user = Utilisateur::updateUserAddress($id, $adresse);
         return $user;
     }
+
     /*Utilisateur*/
 
 
@@ -155,6 +156,16 @@ class Controller {
         }
 
    }
+
+   public static function getProduitsCommande($commande_id) {
+       $commandes = Commande::getProduitByCommande($commande_id);
+       return $commandes;
+   }
+
+   public static function getHistoriqueCommandes() {
+        $commandes = Commande::getCommandesByUser($_SESSION['user_id']);
+        return $commandes;
+   }
     /* Commande */
 
 
@@ -187,8 +198,10 @@ class Controller {
 
     public static function deleteProduit($id) {
         if(isset($id) && isset($_SESSION['user_id'])) {
+            $_SESSION['count'] -= $_SESSION['panier']['produit_' . $id]['quantite'];
+            $_SESSION['prix_total'] -= $_SESSION['panier']['produit_' . $id]['prix'];
             unset($_SESSION['panier']['produit_' . $id]);
-            $_SESSION['count'] -= 1;
+
         } else {
             echo 'Une erreur et survenue lors de la supression';
         }
