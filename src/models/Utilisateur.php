@@ -44,7 +44,7 @@
           }
 
       }
-      /* On verifi si l'ultitisateur existe*/
+      /* On verifie si l'ultitisateur existe */
       public static function authentification($email, $password) {
 
         $query = Model::getPDO()->prepare("SELECT * FROM utilisateurs WHERE email = ?");

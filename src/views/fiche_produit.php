@@ -184,23 +184,8 @@ $linkToAddPanier = Controller::redirectTo('add_produit_to_panier.php');
                 <main class="col-md-6">
                     <article>
                         <img src="../img/<?= $produit['image'] ?>" alt="../img/dvd2.jpg" title="">
-                        <a href="<?=$linkToAddPanier?>?id_p=<?= $produit['id_produit'] ?>" 
-                        class="btn btn-danger addToCart" style="margin-right: 145px;">
-                            <span class="glyphicon glyphicon glyphicon-plus"></span>
-                            Ajouter au panier
-                        </a>
-                        <select name="quantite" id="quantite">
-                            <option value="quantite">1</option>
-                            <option value="quantite">2</option>
-                            <option value="quantite">3</option>
-                            <option value="quantite">4</option>
-                            <option value="quantite">5</option>
-                            <option value="quantite">6</option>
-                            <option value="quantite">7</option>
-                            <option value="quantite">8</option>
-                            <option value="quantite">9</option>
-                            <option value="quantite">10</option>
-                        </select>
+
+
                     </article>
                 </main>
                 <aside class="col-md-6">

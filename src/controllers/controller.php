@@ -124,7 +124,11 @@ class Controller {
         if(end($exploded_url) == "") {
             array_pop($exploded_url);
             if(end($exploded_url) == "src") {
-                $link = "views/" . $page_vise;
+                if($page_vise != 'home') {
+                    $link = "views/" . $page_vise;
+                } else {
+                    $link = './';
+                }
             }
         } // sinon on
         else {

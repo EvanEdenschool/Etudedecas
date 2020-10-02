@@ -3,7 +3,9 @@ $produits = Controller::getProduits();
 // si les champs sont posté on appelle la fonction de filtre
 if ((isset($_POST['categorie']) && $_POST['categorie'] != "") && (isset($_POST['prix']) && $_POST['prix'] != "") && (isset($_POST['genre']) && $_POST['genre'] != "")) {
     $produits = Controller::getProduitByCriteres();
-}else if ((isset($_POST['categorie']) && $_POST['categorie'] != "")) {
+}
+
+else if ((isset($_POST['categorie']) && $_POST['categorie'] != "")) {
 
     $produits = Controller::getProduitByCategorie();
 
